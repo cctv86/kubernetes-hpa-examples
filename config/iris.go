@@ -30,7 +30,10 @@ func NewAPP() *iris.Application {
 		// 为空则从 `ctx.Values().Get(MessageHeaderKey)` 获取头信息
 		MessageHeaderKeys: []string{"User-Agent"},
 	})
+
 	app.Use(customLogger)
+
+	// 日志级别
 	app.Logger().SetLevel("debug")
 
 	// favicons
